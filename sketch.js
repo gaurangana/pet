@@ -1,6 +1,7 @@
 var dog,sadDog,happyDog;
 var foodObj , feed, addFood ;
 var database ,foodObj ;
+var feedTime , lastFed ;
 
 
 function preload(){
@@ -15,21 +16,26 @@ function setup() {
   dog.addImage(sadDog) ;
   dog.scale=0.15 ;
 
-  feed= createbutton("feed the dog") ;
+  feed= createButton("feed the dog") ;
   feed.position(700,95) ;
-  feed.mousepressed(feed) ;
+  feed.mousePressed(feed) ;
 
   addFood = createButton("add food") ;
   addFood.position(800,95) ;
   addFood.mousePressed(addFood) ;
+
+ foodObj = new Food() ;
+ foodStock = database.ref("food").foodStock.on
 
 
 }
 
 function draw() {
   background(46,139,87);
+  foodObj.display() ;
   fill(255,255,254) ;
   if(lastFed >= 12){
+   
     text("Last Feed: 12 AM", 350, 30) ;
 
   }
