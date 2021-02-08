@@ -1,7 +1,7 @@
 class Food{
     constructor(){
         this.foodStock =  1 ;
-        this.image = loadImage("images/milk.png")
+        this.image = loadImage("Images/Milk.png")
         
 
     }
@@ -31,15 +31,22 @@ display(){
 
 
     getFoodStock(){
-     
+     return this.foodStock ;
     }
 
-    updateFoodStock(fed){
-        database.ref("/").update({ 
-            dog : fed
-            })
+    updateFoodStock(foodStock){
+     this.foodStock =   foodStock ;
+          
     }
 
-   
+   deductFood(){
+    if(this.foodStock > 0){
+this.foodStock = this.foodStock -1 
+    }
+   }
+
+   getfedTime(lastFed){
+       this.lastFed = lastFed
+   }
     
 }
