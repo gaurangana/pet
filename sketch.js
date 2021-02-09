@@ -33,12 +33,17 @@ function setup() {
 function draw() {
   background(46,139,87);
   foodObj.display() ;
-  fill(255,255,254) ;
-  if(lastFed >= 12){
+  // fill(255,255,254) ;
+  // if(lastFed >= 12){
    
-    text("Last Feed: 12 AM", 350, 30) ;
+  //   text("Last Feed: 12 AM", 350, 30) ;
+   
+  // }
 
-  }
+  fedTime=database.ref('FeedTime');
+  fedTime.on("value",function(data)
+  { lastFed=data.val();
+  });
   drawSprites();
 }
 
@@ -64,9 +69,9 @@ foodObj.updateFoodStock(foodObj.getFoodStock()*0 ) ;
 }
 
 
-fedTime = database.ref('FeedTime') ;
-fedTime.on("value",function(data){
-  lastFed= data.val() ;
-}) ;
+// fedTime = database.ref('FeedTime') ;
+// fedTime.on("value",function(data){
+//   lastFed= data.val() ;
+// }) ;
 
 //function to add food in stock
