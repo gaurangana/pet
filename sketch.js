@@ -25,7 +25,10 @@ function setup() {
   addFood.mousePressed(addFood) ;
 
  foodObj = new Food() ;
- foodStock = database.ref("food").foodStock.on
+ 
+ fedTime=database.ref('FeedTime');
+  fedTime.on("value",function(data)
+  { lastFed=data.val(); });
 
 
 }
